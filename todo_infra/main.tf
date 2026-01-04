@@ -3,11 +3,11 @@ module "resource_group"{
     resource_group_name="prodrg009"
     location ="central india"
 }
- module "resource_group1"{
-    source="../module/resource_group"
-     resource_group_name="prodrg001"
-     location ="central india"
- }
+ #module "resource_group1"{
+    #source="../module/resource_group"
+    # resource_group_name="prodrg001"
+    # location ="central india"
+ #}
 
 module "virtual_network"{
     depends_on = [ module.resource_group ]
