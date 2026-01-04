@@ -9,15 +9,15 @@ module "resource_group"{
      location ="central india"
  }
 
-#module "virtual_network"{
-    #depends_on = [ module.resource_group ]
-    #source="../module/virtual_network"
-    #vnetname="prodvnet009"
-    #location="central india"
-    #address_space=["10.0.0.0/16"]
-    #resource_group_name = "prodrg009"
+module "virtual_network"{
+    depends_on = [ module.resource_group ]
+    source="../module/virtual_network"
+    vnetname="prodvnet009"
+    location="central india"
+    address_space=["10.0.0.0/16"]
+    resource_group_name = "prodrg009"
 
-#}
+}
 
 module "frontend-subnet"{
     depends_on=[module.virtual_network]
