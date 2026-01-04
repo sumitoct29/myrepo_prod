@@ -3,21 +3,21 @@ module "resource_group"{
     resource_group_name="prodrg009"
     location ="central india"
 }
-# module "resource_group1"{
-#     source="../module/resource_group"
-#     resource_group_name="prodrg001"
-#     location ="central india"
-# }
+ module "resource_group1"{
+    source="../module/resource_group"
+     resource_group_name="prodrg001"
+     location ="central india"
+ }
 
-module "virtual_network"{
-    depends_on = [ module.resource_group ]
-    source="../module/virtual_network"
-    vnetname="prodvnet009"
-    location="central india"
-    address_space=["10.0.0.0/16"]
-    resource_group_name = "prodrg009"
+#module "virtual_network"{
+    #depends_on = [ module.resource_group ]
+    #source="../module/virtual_network"
+    #vnetname="prodvnet009"
+    #location="central india"
+    #address_space=["10.0.0.0/16"]
+    #resource_group_name = "prodrg009"
 
-}
+#}
 
 module "frontend-subnet"{
     depends_on=[module.virtual_network]
@@ -39,13 +39,13 @@ module "backend-subnet"{
 
 }
 
-module"frontend-vm"{
-    source = "../module/virtual_machine"
-    nic_name="frontend_nic"
-    location="central india"
-    resource_group_name="prodrg009"
-    pip_name="publicip004"
+#module"frontend-vm"{
+    #source = "../module/virtual_machine"
+    #nic_name="frontend_nic"
+    #location="central india"
+    #resource_group_name="prodrg009"
+    #pip_name="publicip004"
 
-}
+#}
 
 
